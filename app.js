@@ -4,6 +4,15 @@ const screens = document.querySelectorAll('.screen')
 const timelist = document.querySelector('#time-list')
 const timeEl = document.querySelector('#time')
 const board = document.querySelector('#board')
+const onClick = document.querySelector('#click')
+const onTarget = document.querySelector('#target')
+const miss = document.querySelector('#miss')
+
+const play = (audio) => {
+    audio.play()
+}
+
+
 let time = 0;
 let score = 0
 
@@ -20,9 +29,12 @@ const generateRandomColor = () => {
 
 board.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('circle')) {
+        play(onTarget)
         score++
         evt.target.remove()
         createRandomCircle()
+    } else {
+        play(miss)
     }
 })
 
@@ -75,8 +87,7 @@ const decreaseTime = () => {
 
         if (current < 10) {
             current = `0${current}`
-        }
-    
+        }    
         setTime(current)
     }
 }
@@ -89,6 +100,7 @@ const startGame = () => {
 
 startBtn.addEventListener('click', (evt) => {
     evt.preventDefault()
+    play(onClick)
     screens[0].classList.add('up')
 })
 
@@ -96,6 +108,7 @@ timelist.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('time-btn')) {
         time = parseInt(evt.target.getAttribute('data-time'))
         screens[1].classList.add('up')
+        play(onClick)
         startGame()
     }
 })
