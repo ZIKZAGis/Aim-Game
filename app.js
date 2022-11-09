@@ -1,4 +1,5 @@
 const startBtn = document.querySelector('#start')
+const resetBtn = document.querySelector('#reset')
 const screens = document.querySelectorAll('.screen')
 const timelist = document.querySelector('#time-list')
 const timeEl = document.querySelector('#time')
@@ -34,8 +35,8 @@ const createRandomCircle = () => {
 
     const size = getRandomNumber(10, 45)
     const {width, height} = board.getBoundingClientRect()
-    const x = getRandomNumber(0, width - size)
-    const y = getRandomNumber(0, height - size)
+    const x = getRandomNumber(10, width - (size))
+    const y = getRandomNumber(10, height - (size))
     const color = generateRandomColor()
 
     circle.classList.add('circle')
@@ -53,20 +54,22 @@ const setTime = (value) => {
     timeEl.innerHTML = `00:${value}`
 }
 
+const newGame = () => {
+    resetBtn.addEventListener('click', () => {
+        location.reload();
+    })
+}
+
 const finishGame = () => {
+    resetBtn.classList.remove('hide')
     timeEl.parentNode.classList.add('hide')
     board.innerHTML = `<h1>Счет: <span class="primary">${score}</span></h1>`
+    newGame()
 }
 
 const decreaseTime = () => {
     if (time === 0) {
         finishGame()
-        // const btnEnd = document.createElement('button')
-        // btnEnd.style.width = '200px'
-        // btnEnd.style.height = '80px'
-        // btnEnd.style.color = 'black'
-        // btnEnd.innerHTML = 'Начать сначала'
-        // screens[2].append(btnEnd)
     } else {
         let current = --time
 

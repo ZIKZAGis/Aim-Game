@@ -16,14 +16,16 @@ body {
 a {
   color: #fff;
   text-decoration: none;
+  transition: all ease 0.5s;
 }
 
 a:hover {
-  color: #16d9e3;
+  color: #92000a;
+  text-shadow: 0 0 1px #92000a;
 }
 
 .start {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 h1 {
@@ -39,7 +41,7 @@ h1 {
   height: 100vh;
   width: 100vw;
   transition: margin 0.5s ease-out;
-  background: linear-gradient(90deg, #29323c 0%, #485563 100%);
+  background: linear-gradient(90deg, #191919 0%, black 150%);
 }
 
 .screen.up {
@@ -61,16 +63,40 @@ h1 {
 .time-btn {
   background-color: transparent;
   border: 2px solid #c0c0c0;
+  border-radius: 5px;
   color: #fff;
   cursor: pointer;
   font-family: inherit;
   padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  transition: all ease 0.5s;
 }
 
 .time-btn:hover {
-  border: 2px solid #16d9e3;
-  color: #16d9e3;
+  border: 2px solid #92000a;
+  border-radius: 10px;
+  color: #92000a;
+  text-shadow: 0 0 1px #92000a;
+}
+
+.reset-btn {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid #c0c0c0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  transition: all ease 0.5s;
+}
+
+.reset-btn:hover {
+  border: 2px solid #92000a;
+  border-radius: 10px;
+  color: #92000a;
+  text-shadow: 0 0 1px #92000a;
 }
 
 .hide {
@@ -78,7 +104,8 @@ h1 {
 }
 
 .primary {
-  color: #16d9e3;
+  color: #92000a;
+  text-shadow: 0 0 4px #92000a;
 }
 
 .board {
@@ -88,10 +115,11 @@ h1 {
   position: relative;
   width: 500px;
   height: 500px;
-  background: linear-gradient(118.38deg, #29323c -4.6%, #485563 200.44%);
-  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  background: linear-gradient(118.38deg, #222020 -4.6%, #2a2828 200.44%);
+  box-shadow: -8px -8px 20px #222020, 10px 7px 20px #2a2828;
   border-radius: 30px;
   overflow: hidden;
+  margin-bottom: 40px;
 }
 
 .circle {
